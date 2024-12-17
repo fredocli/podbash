@@ -1,0 +1,88 @@
+#!/usr/bin/bash
+
+# NC='\e[0m'; RED='\e[1;31m';GREEN='\e[0;32m';GREEN='\e[1;32m';YELLOW='\e[0;33m';YELLOW='\e[1;33m'; 
+# 
+
+helpme="
+$BAT -p -f -l markdown << 'EOF'
+folder: $folder
+promp: $prompt
+
+
+
+
+ctrl+h          show this help
+ctrl+v          toggle preview
+ctrl+a	        toggle all
+ctrl+y          Yank path of the file(s)
+ctrl+x		yank content of the file(s)
+ctrl+u          update the long preview (filename + tags)
+
+### Edit source code
+
+ctrl+e              edit source code with vim  
+
+### Edit with
+
+enter               vim
+ctrl+t              vimtag 
+ctrl+c	            code
+ctrl+d	            diff (meld)
+
+### Read with
+
+ctrl+b	            $BAT 
+ctrl+w              preview in browser
+ctrl+p              pdf
+ctrl+g              groffdown
+
+### preview with
+
+ctrl+p	    :   bcat 
+ctrl+alt+p  :   groffdown 
+
+
+
+# FZZ VARIABLES
+
+## Just the current line \{\}
+{}
+
+## Just the current line - field1 \{1\}
+{1}
+
+## Just the current line - field2 \{2\}
+{2}
+
+## All selected line \{+\}
+{+}
+
+## The path to the tmp file (current line) \{f\}
+{f}
+
+## The path to the tmp file (all selected line) \{+f\}  
+{+f}
+
+## The Query \{q\}
+{q}
+EOF
+"
+
+preview="
+$BAT -p -f  -l markdown << EOF
+# {1} {3}
+
+{4}
+
+EOF
+"
+
+
+/usr/bin/wget -q https://feeds.audiomeans.fr/feed/01a5bd92-d6c8-4572-8092-88e4c9953cc9.xml -O - | /usr/bin/xsltproc /home/fred/Downloads/bashpod-master/parse_enclosure.xsl - >tmp.tsv
+
+/usr/bin/wget -q https://feeds.audiomeans.fr/feed/01a5bd92-d6c8-4572-8092-88e4c9953cc9.xml -O - | /usr/bin/xsltproc /home/fred/Downloads/bashpod-master/itune2m3u.xsl - >tmp.m3u
+
+ fzf --delimiter='\t' --with-nth 1,3 --ansi --prompt='Run: '   --multi  --info=inline --layout=reverse \
+ --preview "$preview" \
+ --bind "ctrl-h:preview%($helpme)%" \
+ --bind "enter:execute(mpv \$(awk -F '\t' '{print \$2}' {+f} ) < /dev/tty > /dev/tty 2>&1)" < tmp.tsv 

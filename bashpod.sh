@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 
 #
-# Bashpod by John Ramsden <johnramsden@tutanota.com>
+# podbash by John Ramsden <johnramsden@tutanota.com>
 # Copyright 2009-2014
 #
 # Originally based on BashPodder by Linc Fessenden 12/1/2004
@@ -29,11 +29,11 @@
 
 # BASEDIR: Base location of the script and related files.  If you have an
 # escaped space in the directory name be sure to keep the double quotes.
-# Default is "$HOME/bashpod".  This is commented out on purpose to start
+# Default is "$HOME/podbash".  This is commented out on purpose to start
 # with in order to force the user to review this USER CONFIGURATION section
 # and set the various options. Uncomment and set to desired path.
 # Mashpodder will not create this directory for you.
-BASEDIR="/home/fred/Downloads/bashpod-master"
+BASEDIR="/home/fred/.repo/podbash"
 
 # RSSFILE: Location of pod.conf file.  Can be changed to another file name.
 # Default is "$BASEDIR/pod.conf".
@@ -64,7 +64,7 @@ PODCAST_PERM="775"
 # DATEFILEDIR: Location of the "date" directory below $PODCASTDIR
 # Note: do not use a leading slash, it will get added later.  The
 # eventual location will be $PODCASTDIR/$DATEFILEDIR/$(date +$DATESTRING)
-# Bashpod will create this directory if it does not exist.
+# podbash will create this directory if it does not exist.
 # Default is "", which results in date directories being put in $PODCASTDIR.
 DATEFILEDIR=""
 
@@ -712,7 +712,7 @@ top of the script in the 'USER CONFIGURATION' section or temporarily by passing
 a command line switch.  The 'USER CONFIGURATION' section also has additional
 things you can set that do not have compatible command-line switches.
 
-Therefore, reading bashpod.sh is recommended.
+Therefore, reading podbash.sh is recommended.
 
 EOF
                     exit 0

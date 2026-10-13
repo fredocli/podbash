@@ -1,10 +1,10 @@
-# BASHPOD
+# PODBASH
 
 A simple podcatching client based on BashPodder
 
-Bashpodder is a simple podcasting client written completely in bash. in 2005 [chessgriffin](https://github.com/chessgriffin/mashpodder) took over maintenance of bshpodder and renamed it to mashpodder. In 2015 he stopped maintaining his version mashpotter, when I downloaded it and made a few simple customisations to my to make it able to do a few things I required, I forked project and renamed it Bashpod.
+Bashpodder is a simple podcasting client written completely in bash. in 2005 [chessgriffin](https://github.com/chessgriffin/mashpodder) took over maintenance of bshpodder and renamed it to mashpodder. In 2015 he stopped maintaining his version mashpotter, when I downloaded it and made a few simple customisations to my to make it able to do a few things I required, I forked project and renamed it Podbash.
 
-Bashpod allows the user to download podcast episodes. The user can choose to save these episodes in a named directory (i.e. separate directory per feed) or in a date-based directory, so the most recent episodes are in one folder. Or, the user can combine this by having some podcasts in a named directory and others in the date-based directory. The user can choose to download all, none, or a set number of episodes per feed. The user can also choose to mark the episodes as downloaded (without actually downloading them) which can be used to 'catch up' to a podcast.
+Podbash allows the user to download podcast episodes. The user can choose to save these episodes in a named directory (i.e. separate directory per feed) or in a date-based directory, so the most recent episodes are in one folder. Or, the user can combine this by having some podcasts in a named directory and others in the date-based directory. The user can choose to download all, none, or a set number of episodes per feed. The user can also choose to mark the episodes as downloaded (without actually downloading them) which can be used to 'catch up' to a podcast.
 
 ## Dependencies
 * bash
@@ -33,7 +33,7 @@ http://feeds.feedburner.com/linuxashd TheLinuxActionShow all
 http://feeds.feedburner.com/linuxunvid LinuxUnplugged all
 ```
 
-### bashpod.sh
+### podbash.sh
 
 * ```BASEDIR```: Base location of the script and related files.
 

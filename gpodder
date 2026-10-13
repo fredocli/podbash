@@ -1,0 +1,8 @@
+#!/usr/bin/bash
+
+sql="
+SELECT title,url,published,total_time,replace(description,CHAR(10),'') as description ,episode_art_url FROM episode WHERE state=2
+
+"
+
+sqlite3 --json ~/gPodder/Database "$sql" 

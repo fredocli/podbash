@@ -11,7 +11,7 @@
 				<xsl:value-of select="enclosure/@url"/><xsl:text>&#9;</xsl:text>
 				<xsl:value-of select="$m"/><xsl:text> MB</xsl:text> <xsl:text>&#9;</xsl:text>
 				<xsl:value-of select="itunes:duration" /><xsl:text>&#9;</xsl:text>
-				<xsl:value-of select="description"/><xsl:text>&#9;</xsl:text>
+				<xsl:value-of select="summary"/><xsl:text>&#9;</xsl:text>
 				<xsl:text>&#10;</xsl:text>
 
 			</xsl:for-each>
